@@ -27,6 +27,7 @@ TagManager:
   - brownBattery
   - whiteBattery
   - enterButton
+  - foundPurple
   layers:
   - Default
   - TransparentFX
