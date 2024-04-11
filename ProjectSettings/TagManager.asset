@@ -28,6 +28,7 @@ TagManager:
   - whiteBattery
   - enterButton
   - foundPurple
+  - doorPowerDisplay
   layers:
   - Default
   - TransparentFX

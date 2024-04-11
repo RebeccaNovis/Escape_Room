@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/FirstSlotPuzzle.unity
     guid: ad843ce1770b4364a858e33860e0fde0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WelcomeRoom.unity
     guid: f38c33381584c6e418cf6e5920a32a28
+  - enabled: 1
+    path: Assets/Scenes/NewWelcomeRoom.unity
+    guid: 75a12a9864816174dac8770f0405e902
   - enabled: 1
     path: Assets/Scenes/SlotsTutorial.unity
     guid: 6095a1de7a1b42242b39b150dc6dac60
