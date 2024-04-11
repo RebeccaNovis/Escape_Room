@@ -15,6 +15,10 @@ public class ButtonControl : MonoBehaviour
     public UnityEvent onRelease; //adds a customizable event in the Inspector
     public static bool isLightCubeOn = false;
 
+    //button down/up positions
+    private Vector3 buttonDownPos = new Vector3(0f, 0.00163f, 0.00316803f);
+    private Vector3 buttonUpPos = new Vector3(0f, 0.005440924f, 0.00316803f);
+
     public static int redCount = 0;
     public static int blueCount = 0;
     public static int yellowCount = 0;
@@ -49,7 +53,7 @@ public class ButtonControl : MonoBehaviour
     {
         if(hover.interactorObject is XRPokeInteractor)
         {
-            button.transform.localPosition = new Vector3(0.565f, -0.42f, 0.548f); //moves the button down
+            button.transform.localPosition = buttonDownPos; //moves the button down
             onPress.Invoke(); //calls whatever function you want to happen when you press the button. set the function in the inspector
         }
     }
@@ -58,7 +62,8 @@ public class ButtonControl : MonoBehaviour
     {
         if (hover.interactorObject is XRPokeInteractor)
         {
-            button.transform.localPosition = new Vector3(0.565f, -0.41f, 0.548f); //moves the button back to starting position
+            button.transform.localPosition = buttonUpPos; //moves the button back to starting position
+            onRelease.Invoke(); //calls whatever function/what you want to happen when you remove finger from button
         }
     }
 

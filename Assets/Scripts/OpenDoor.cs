@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class OpenDoor : MonoBehaviour
 {
     public GameObject closedDoor;
     public GameObject doorVoid;
+
+    public UnityEvent onClosed; //unity event to make something happen if door can't open
+    public UnityEvent onOpen; //unity event to make something happen when door does open
 
     //public BoxCollider voidCollider;
 
@@ -85,6 +89,8 @@ public class OpenDoor : MonoBehaviour
             }
         }
 
+
+
     }
 
     public void RevealDoor()
@@ -92,6 +98,20 @@ public class OpenDoor : MonoBehaviour
         //Destroy(closedDoor);
         closedDoor.SetActive(false);
         doorVoid.SetActive(true);
+    }
+
+    public void CheckDoor()
+    {
+        if (InsertBattery.isRedInserted)
+        {
+            RevealDoor();
+            onOpen.Invoke();
+        }
+        else
+        {
+            CloseDoor();
+            onClosed.Invoke();
+        }
     }
 
     public void CloseDoor()
