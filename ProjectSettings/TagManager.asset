@@ -29,6 +29,8 @@ TagManager:
   - enterButton
   - foundPurple
   - doorPowerDisplay
+  - orangePowerDisplay
+  - orangeSlot
   layers:
   - Default
   - TransparentFX
