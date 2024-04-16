@@ -1910,7 +1910,7 @@ AudioSource:
   m_GameObject: {fileID: 636217733}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3135664984024367270, guid: e09b0ec1e45ee254fb2da6a8c442973a, type: 2}
   m_audioClip: {fileID: 8300000, guid: 530db0ba85b066d499e07def8773c69c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -2516,6 +2516,107 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2871854915733156396, guid: 65eb6b98091a5734ba9d9ca871cef69a, type: 3}
   m_PrefabInstance: {fileID: 358706026}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &807254939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6748123099218499082, guid: 017f934d186cde64584b97d75713f7c6, type: 3}
+  m_PrefabInstance: {fileID: 7376990228672723846}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &807254946
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807254939}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 3332501873025391090, guid: e09b0ec1e45ee254fb2da6a8c442973a, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 163a88689d381ab41a6d686e8c26b66c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &809960713
 GameObject:
   m_ObjectHideFlags: 0
@@ -4425,7 +4526,7 @@ AudioSource:
   m_GameObject: {fileID: 1678963754}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -836889486728060721, guid: e09b0ec1e45ee254fb2da6a8c442973a, type: 2}
   m_audioClip: {fileID: 8300000, guid: a6b1f373e72af6a4ab52196a96c64aa5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.272
@@ -5358,16 +5459,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 525725112156853819, guid: fc8a014be94bdd745aabea889c4d3947, type: 3}
       propertyPath: m_text
-      value: "Hello, and welcome to the Advancement of Dimensional Research Institution
-        for Forward Thinking, or ADRIFT for short! We have brought you into our testing
-        center as part of our research. \r\nYou will go through a series of tests
-        that each take place in a different room. Upon entering each room, the door
-        will be locked behind you. Your goal is to figure out how to unlock the door.
-        Make sure to examine each room and it's contents thoroughly, as the solution
-        may not always be immediately obvious.\nPlease approach the purple  button
-        in front of you by either using the left joystick to walk, or the right joystick
-        to teleport. Press the purple button with your index finger to recieve further
-        instructions on how to start your test.\n"
+      value: 'Hello, and welcome to your new job at the Advanced Dimensional Research
+        Institution for Forward Thinking, or ADRIFT for short! You will be working
+        in our brand new extradimensional testing facility experimenting with how
+        extradimensional matter can be harnessed for power. You will be getting to
+        work right away in one of our many labs, where you will be picking up the
+        work done by the previous scientist in charge of research into Extra-Dimensional
+        Power. We expect your work to be up to standard and done in a timely manner.
+        Due to the high importance of the work done here, failure to perform according
+        to our expectations will result in an immediate termination.
+
+
+        Please
+        approach the purple  button in front of you by either using the left joystick
+        to walk, or the right joystick to teleport. Press the purple button with
+        your index finger to recieve further instructions on how to start your test.
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 6846916219679606342, guid: fc8a014be94bdd745aabea889c4d3947, type: 3}
       propertyPath: m_Name
@@ -5452,6 +5560,10 @@ PrefabInstance:
     - target: {fileID: 8060685017876983620, guid: fc8a014be94bdd745aabea889c4d3947, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119386430546989519, guid: fc8a014be94bdd745aabea889c4d3947, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 17.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5705,6 +5817,14 @@ PrefabInstance:
       propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1373558660}
+    - target: {fileID: 3525219315207057538, guid: 0eb200334b6d4e84e994bcd8fd491609, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -2008694410047212370, guid: e09b0ec1e45ee254fb2da6a8c442973a, type: 2}
+    - target: {fileID: 3525219315207057538, guid: 0eb200334b6d4e84e994bcd8fd491609, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5135376481199306666, guid: 0eb200334b6d4e84e994bcd8fd491609, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.519
@@ -5762,6 +5882,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1776222118589906084, guid: 80a60ba8fe2e06b4eb53c37ef3bcb388, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -2008694410047212370, guid: e09b0ec1e45ee254fb2da6a8c442973a, type: 2}
+    - target: {fileID: 1776222118589906084, guid: 80a60ba8fe2e06b4eb53c37ef3bcb388, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6275528095477367219, guid: 80a60ba8fe2e06b4eb53c37ef3bcb388, type: 3}
       propertyPath: m_Name
       value: button-and-base (1)
@@ -5823,6 +5951,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 686084562324203872, guid: 017f934d186cde64584b97d75713f7c6, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 3332501873025391090, guid: e09b0ec1e45ee254fb2da6a8c442973a, type: 2}
+    - target: {fileID: 686084562324203872, guid: 017f934d186cde64584b97d75713f7c6, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6263933790498229424, guid: 017f934d186cde64584b97d75713f7c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.114
@@ -5871,10 +6007,41 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 358706028}
+    - target: {fileID: 7930045179142563278, guid: 017f934d186cde64584b97d75713f7c6, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930045179142563278, guid: 017f934d186cde64584b97d75713f7c6, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930045179142563278, guid: 017f934d186cde64584b97d75713f7c6, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 807254946}
+    - target: {fileID: 7930045179142563278, guid: 017f934d186cde64584b97d75713f7c6, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930045179142563278, guid: 017f934d186cde64584b97d75713f7c6, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930045179142563278, guid: 017f934d186cde64584b97d75713f7c6, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930045179142563278, guid: 017f934d186cde64584b97d75713f7c6, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6748123099218499082, guid: 017f934d186cde64584b97d75713f7c6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 807254946}
   m_SourcePrefab: {fileID: 100100000, guid: 017f934d186cde64584b97d75713f7c6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

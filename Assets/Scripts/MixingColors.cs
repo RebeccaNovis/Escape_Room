@@ -42,11 +42,19 @@ public class MixingColors : MonoBehaviour
         battery = other.gameObject;
         batRend = battery.GetComponent<Renderer>();
         isBatAttatched = true;
+        Debug.Log("material on enter: " + batRend.material);
     }
 
     private void OnTriggerExit(Collider other)
     {
         isBatAttatched = false;
+        ButtonControl.redMixingCount = 0;
+        ButtonControl.blueMixingCount = 0;
+        ButtonControl.yellowRBYCount = 0;
+        ButtonControl.magentaCount = 0;
+        ButtonControl.cyanCount = 0;
+        ButtonControl.yellowCMYCount = 0;
+        Debug.Log("material on exit: " + batRend.material);
     }
 
     public void ResetColors()

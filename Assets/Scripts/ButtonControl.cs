@@ -13,6 +13,7 @@ public class ButtonControl : MonoBehaviour
     public GameObject button; //the visible part of the button that we see move up and down when we push it
     public UnityEvent onPress; //adds a customizable event in the Inspector
     public UnityEvent onRelease; //adds a customizable event in the Inspector
+    public UnityEvent noPower; //unity event for when trying to use something that needs power
     public static bool isLightCubeOn = false;
 
     //button down/up positions
@@ -21,8 +22,6 @@ public class ButtonControl : MonoBehaviour
     private float buttonUpX;
     private float buttonUpY;
     private float buttonUpZ;
-    //private Vector3 buttonDownPos = new Vector3(0f, 0.00163f, 0.00316803f);
-    //private Vector3 buttonUpPos = new Vector3(0f, 0.005440924f, 0.00316803f);
 
     //red and blue counts for pattern test
     public static int redCount = 0;
@@ -99,38 +98,50 @@ public class ButtonControl : MonoBehaviour
 
     public void ChangeLightCubePower()
     {
-        if (!isLightCubeOn)
+        if (InsertBattery.isPinkInserted)
         {
-            isLightCubeOn = true;
-        } else if (isLightCubeOn)
-        {
-            isLightCubeOn = false;
-            redCount = 0;
-            blueCount = 0;
+            if (!isLightCubeOn)
+            {
+                isLightCubeOn = true;
+            }
+            else if (isLightCubeOn)
+            {
+                isLightCubeOn = false;
+            }
         }
+        else if (!InsertBattery.isPinkInserted)
+        {
+            noPower.Invoke();
+        }
+
     }
 
     public void TrackingButtonPattern()
     {
-        if(button.tag == "redSlot")
+        if (InsertBattery.isPinkInserted)
         {
-            redCount += 1;
-            isRedHit = true;
-        }
-        if(button.tag == "blueSlot")
+            if (button.tag == "redSlot")
+            {
+                redCount += 1;
+                isRedHit = true;
+            }
+            if (button.tag == "blueSlot")
+            {
+                blueCount += 1;
+                isBlueHit = true;
+            }
+            if (button.tag == "enterButton")
+            {
+                isEnterHit = true;
+            }
+            if (button.tag == "revertButton")
+            {
+                isResetHit = true;
+            }
+        } else if (!InsertBattery.isPinkInserted)
         {
-            blueCount += 1;
-            isBlueHit = true;
+            noPower.Invoke();
         }
-        if(button.tag == "enterButton")
-        {
-            isEnterHit = true;
-        }
-        if(button.tag == "revertButton")
-        {
-            isResetHit = true;
-        }
-
     }
 
     public void TrackingElementMix()

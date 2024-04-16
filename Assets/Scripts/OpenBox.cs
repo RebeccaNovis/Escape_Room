@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class OpenBox : MonoBehaviour
 {
     [SerializeField] private GameObject[] inputDisplay;
     [SerializeField] private GameObject door;
+    [SerializeField] private AudioMixerSnapshot newSnapshot;
+    //the time it should take to transition
+    public float transitionTime = 1.0f;
 
     private int inputDisIndex;
     private int[] colorValue = new int[3]; //array of integers to keep track of the colors that have been input. 0 = black, 1 = blue, 2 = red
@@ -112,6 +116,7 @@ public class OpenBox : MonoBehaviour
         inputDisplay[0].GetComponent<Renderer>().material = greenM;
         inputDisplay[1].GetComponent<Renderer>().material = greenM;
         inputDisplay[2].GetComponent<Renderer>().material = greenM;
+        newSnapshot.TransitionTo(transitionTime);
     }
 
     public void ResetBoxes()

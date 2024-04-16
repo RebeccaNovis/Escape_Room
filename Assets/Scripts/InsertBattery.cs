@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class InsertBattery : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class InsertBattery : MonoBehaviour
     static public bool isPinkInserted = false;
     static public bool isPurpleInserted = false;
     //public bool isDuoInserted = false;
+
+    [SerializeField] private AudioMixerSnapshot kickSnareSnap;
+    [SerializeField] private AudioMixerSnapshot slowHihatSnap;
+    [SerializeField] private AudioMixerSnapshot fastHihatSnap;
+
+    public float transitionTime = 1.0f;
 
     private void Start()
     {
@@ -30,13 +37,13 @@ public class InsertBattery : MonoBehaviour
            // insertStartTime = Time.time;
         }
 
-        if (other.gameObject.tag == "purpleBattery" && gameObject.tag == "blueSlot")
+        if (other.gameObject.tag == "blueBattery" && gameObject.tag == "blueSlot")
         {
             isBlueInserted = true;
             //insertStartTime = Time.time;
         }
 
-        if (other.gameObject.tag == "pinkBattery" && gameObject.tag == "pinkSlot")
+        if (other.gameObject.tag == "redBattery" && gameObject.tag == "pinkSlot")
         {
             isPinkInserted = true;
         }
@@ -77,12 +84,12 @@ public class InsertBattery : MonoBehaviour
             //insertStartTime = 0f;
         }
 
-        if (other.gameObject.tag == "purpleBattery" && gameObject.tag == "blueSlot")
+        if (other.gameObject.tag == "blueBattery" && gameObject.tag == "blueSlot")
         {
             isBlueInserted = false;
         }
 
-        if (other.gameObject.tag == "pinkBattery" && gameObject.tag == "pinkSlot")
+        if (other.gameObject.tag == "redBattery" && gameObject.tag == "pinkSlot")
         {
             isPinkInserted = false;
         }
@@ -108,16 +115,19 @@ public class InsertBattery : MonoBehaviour
         if(isRedInserted)
         {
             Debug.Log("Red battery has been inserted: " + isRedInserted);
+            kickSnareSnap.TransitionTo(transitionTime);
         }
 
         if (isBlueInserted)
         {
             Debug.Log("Blue battery has been inserted: " + isBlueInserted);
+            slowHihatSnap.TransitionTo(transitionTime);
         }
 
-        if (isPinkInserted)
+        if (isPurpleInserted)
         {
             Debug.Log("Pink battery has been inserted: " + isPinkInserted);
+            fastHihatSnap.TransitionTo(transitionTime);
         }
 
         /*if (isDuoInserted)
