@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MixingColors : MonoBehaviour
 {
-    public Material redM, blueM, yellowM, whiteM, greenM, purpleM, orangeM, brownM;
+    public Material redM, blueM, yellowM, whiteM, greenM, purpleM, orangeM, brownM, magentaM, cyanM;
 
     [SerializeField] private GameObject battery;
     //[SerializeField] private GameObject batBase;
@@ -26,7 +26,7 @@ public class MixingColors : MonoBehaviour
     {
         if (isBatAttatched)
         {
-            if (ButtonControl.isBlueHit || ButtonControl.isRedHit || ButtonControl.isYellowHit)
+            if (ButtonControl.isBlueMixingHit || ButtonControl.isRedMixingHit || ButtonControl.isYellowRBYHit || ButtonControl.isYellowCMYHit || ButtonControl.isCyanHit || ButtonControl.isMagentaHit)
             {
                 ChangeColor();
             }
@@ -39,6 +39,8 @@ public class MixingColors : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        battery = other.gameObject;
+        batRend = battery.GetComponent<Renderer>();
         isBatAttatched = true;
     }
 
@@ -50,9 +52,13 @@ public class MixingColors : MonoBehaviour
     public void ResetColors()
     {
         batRend.material = whiteM;
-        ButtonControl.redCount = 0;
-        ButtonControl.blueCount = 0;
-        ButtonControl.yellowCount = 0;
+        ButtonControl.redMixingCount = 0;
+        ButtonControl.blueMixingCount = 0;
+        ButtonControl.yellowRBYCount = 0;
+
+        ButtonControl.magentaCount = 0;
+        ButtonControl.cyanCount = 0;
+        ButtonControl.yellowCMYCount = 0;
         ButtonControl.isResetHit = false;
         battery.tag = "whiteBattery";
 
@@ -60,50 +66,100 @@ public class MixingColors : MonoBehaviour
 
     public void ChangeColor()
     {
-        if (ButtonControl.yellowCount > 0 && ButtonControl.redCount == 0 && ButtonControl.blueCount == 0)
+        //color mixing for Red Blue Yellow
+        if (ButtonControl.yellowRBYCount > 0 && ButtonControl.redMixingCount == 0 && ButtonControl.blueMixingCount == 0)
         {
-            ButtonControl.isYellowHit = false;
+            ButtonControl.isYellowRBYHit = false;
             batRend.material = yellowM;
             battery.tag = "yellowBattery";
         }
-        if (ButtonControl.yellowCount == 0 && ButtonControl.redCount > 0 && ButtonControl.blueCount == 0)
+        if (ButtonControl.yellowRBYCount == 0 && ButtonControl.redMixingCount > 0 && ButtonControl.blueMixingCount == 0)
         {
             ButtonControl.isRedHit = false;
             batRend.material = redM;
             battery.tag = "redBattery";
         }
-        if (ButtonControl.yellowCount == 0 && ButtonControl.redCount == 0 && ButtonControl.blueCount > 0)
+        if (ButtonControl.yellowRBYCount == 0 && ButtonControl.redMixingCount == 0 && ButtonControl.blueMixingCount > 0)
         {
             ButtonControl.isBlueHit = false;
             batRend.material = blueM;
             battery.tag = "blueBattery";
         }
-        if (ButtonControl.yellowCount > 0 && ButtonControl.redCount > 0 && ButtonControl.blueCount == 0)
+        if (ButtonControl.yellowRBYCount > 0 && ButtonControl.redMixingCount > 0 && ButtonControl.blueMixingCount == 0)
         {
-            ButtonControl.isYellowHit = false;
+            ButtonControl.isYellowRBYHit = false;
             ButtonControl.isRedHit = false;
             batRend.material = orangeM;
             battery.tag = "orangeBattery";
         }
-        if (ButtonControl.yellowCount > 0 && ButtonControl.redCount == 0 && ButtonControl.blueCount > 0)
+        if (ButtonControl.yellowRBYCount > 0 && ButtonControl.redMixingCount == 0 && ButtonControl.blueMixingCount > 0)
         {
-            ButtonControl.isYellowHit = false;
+            ButtonControl.isYellowRBYHit = false;
             ButtonControl.isBlueHit = false;
             batRend.material = greenM;
             battery.tag = "greenBattery";
         }
-        if (ButtonControl.yellowCount == 0 && ButtonControl.redCount > 0 && ButtonControl.blueCount > 0)
+        if (ButtonControl.yellowRBYCount == 0 && ButtonControl.redMixingCount > 0 && ButtonControl.blueMixingCount > 0)
         {
             ButtonControl.isRedHit = false;
             ButtonControl.isBlueHit = false;
             batRend.material = purpleM;
             battery.tag = "purpleBattery";
         }
-        if (ButtonControl.yellowCount > 0 && ButtonControl.redCount > 0 && ButtonControl.blueCount > 0)
+        if (ButtonControl.yellowRBYCount > 0 && ButtonControl.redMixingCount > 0 && ButtonControl.blueMixingCount > 0)
         {
-            ButtonControl.isYellowHit = false;
+            ButtonControl.isYellowRBYHit = false;
             ButtonControl.isRedHit = false;
             ButtonControl.isBlueHit = false;
+            batRend.material = brownM;
+            battery.tag = "brownBattery";
+        }
+
+        //color mixing for Cyan Yellow Magenta
+        if (ButtonControl.yellowCMYCount > 0 && ButtonControl.magentaCount == 0 && ButtonControl.cyanCount == 0)
+        {
+            ButtonControl.isYellowRBYHit = false;
+            batRend.material = yellowM;
+            battery.tag = "yellowBattery";
+        }
+        if (ButtonControl.yellowCMYCount == 0 && ButtonControl.magentaCount > 0 && ButtonControl.cyanCount == 0)
+        {
+            ButtonControl.isMagentaHit = false;
+            batRend.material = magentaM;
+            battery.tag = "magentaBattery";
+        }
+        if (ButtonControl.yellowCMYCount == 0 && ButtonControl.magentaCount == 0 && ButtonControl.cyanCount > 0)
+        {
+            ButtonControl.isCyanHit = false;
+            batRend.material = cyanM;
+            battery.tag = "cyanBattery";
+        }
+        if (ButtonControl.yellowCMYCount > 0 && ButtonControl.magentaCount > 0 && ButtonControl.cyanCount == 0)
+        {
+            ButtonControl.isYellowCMYHit = false;
+            ButtonControl.isMagentaHit = false;
+            batRend.material = redM;
+            battery.tag = "redBattery";
+        }
+        if (ButtonControl.yellowCMYCount > 0 && ButtonControl.magentaCount == 0 && ButtonControl.cyanCount > 0)
+        {
+            ButtonControl.isYellowCMYHit = false;
+            ButtonControl.isCyanHit = false;
+            batRend.material = greenM;
+            battery.tag = "greenBattery";
+        }
+        if (ButtonControl.yellowCMYCount == 0 && ButtonControl.magentaCount > 0 && ButtonControl.cyanCount > 0)
+        {
+            ButtonControl.isMagentaHit = false;
+            ButtonControl.isCyanHit = false;
+            batRend.material = blueM;
+            battery.tag = "blueBattery";
+        }
+        if (ButtonControl.yellowCMYCount > 0 && ButtonControl.magentaCount > 0 && ButtonControl.cyanCount > 0)
+        {
+            ButtonControl.isYellowCMYHit = false;
+            ButtonControl.isMagentaHit = false;
+            ButtonControl.isCyanHit = false;
             batRend.material = brownM;
             battery.tag = "brownBattery";
         }

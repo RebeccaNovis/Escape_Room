@@ -114,6 +114,20 @@ public class OpenDoor : MonoBehaviour
         }
     }
 
+    public void CheckLabDoor()
+    {
+        if (InsertBattery.isRedInserted && InsertBattery.isBlueInserted && InsertBattery.isPurpleInserted)
+        {
+            RevealDoor();
+            onOpen.Invoke();
+        }
+        else
+        {
+            CloseDoor();
+            onClosed.Invoke();
+        }
+    }
+
     public void CloseDoor()
     {
         closedDoor.SetActive(true);

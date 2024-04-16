@@ -31,6 +31,12 @@ TagManager:
   - doorPowerDisplay
   - orangePowerDisplay
   - orangeSlot
+  - magentaButton
+  - cyanButton
+  - yellowButtonCMY
+  - redButton
+  - blueButton
+  - yellowButtonRBY
   layers:
   - Default
   - TransparentFX

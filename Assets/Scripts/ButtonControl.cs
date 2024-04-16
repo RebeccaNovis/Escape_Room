@@ -16,16 +16,38 @@ public class ButtonControl : MonoBehaviour
     public static bool isLightCubeOn = false;
 
     //button down/up positions
-    private Vector3 buttonDownPos = new Vector3(0f, 0.00163f, 0.00316803f);
-    private Vector3 buttonUpPos = new Vector3(0f, 0.005440924f, 0.00316803f);
+    private Vector3 buttonDownPos;
+    private Vector3 buttonUpPos;
+    private float buttonUpX;
+    private float buttonUpY;
+    private float buttonUpZ;
+    //private Vector3 buttonDownPos = new Vector3(0f, 0.00163f, 0.00316803f);
+    //private Vector3 buttonUpPos = new Vector3(0f, 0.005440924f, 0.00316803f);
 
+    //red and blue counts for pattern test
     public static int redCount = 0;
     public static int blueCount = 0;
-    public static int yellowCount = 0;
+
+    //color counts for mixing
+    public static int redMixingCount = 0;
+    public static int blueMixingCount = 0;
+    public static int yellowCMYCount = 0; //yellow used when mixing cyan/magenta/yellow
+    public static int yellowRBYCount = 0; //yellow when mixing red/blue/yellow
+    public static int magentaCount = 0;
+    public static int cyanCount = 0;
+    
+    //checks what button is hit on pattern test
     public static bool isRedHit = false;
     public static bool isBlueHit = false;
-    public static bool isYellowHit = false;
     public static bool isEnterHit = false;
+
+    //checks what buttons are hit on mixing tables
+    public static bool isRedMixingHit = false;
+    public static bool isBlueMixingHit = false;
+    public static bool isYellowCMYHit = false; //yellow used when mixing cyan/magenta/yellow
+    public static bool isYellowRBYHit = false; //yellow when mixing red/blue/yellow
+    public static bool isMagentaHit = false;
+    public static bool isCyanHit = false;
     public static bool isResetHit = false;
 
 
@@ -36,17 +58,25 @@ public class ButtonControl : MonoBehaviour
     {
         redCount = 0;
         blueCount = 0;
-        yellowCount = 0;
+        yellowRBYCount = 0;
         isLightCubeOn = false;
         isRedHit = false;
         isBlueHit = false;
-        isYellowHit = false;
+        isYellowRBYHit = false;
         isEnterHit = false;
         isResetHit = false;
 
         interactable = GetComponent<XRBaseInteractable>();
         interactable.hoverEntered.AddListener(PowerOn); //everytime we hover over the interactable, the PowerOn function is called
         interactable.hoverExited.AddListener(ResetPosition); //everytime we exit hover, the ResetPosition function is called
+
+        buttonUpPos = button.transform.localPosition;
+        Debug.Log("button pos:" + buttonUpPos);
+        buttonUpX = buttonUpPos.x;
+        buttonUpY = buttonUpPos.y;
+        buttonUpZ = buttonUpPos.z;
+        buttonDownPos = new Vector3(buttonUpX, (buttonUpY - .003810924f), buttonUpZ);
+        
     }
 
     public void PowerOn(BaseInteractionEventArgs hover)
@@ -92,16 +122,55 @@ public class ButtonControl : MonoBehaviour
             blueCount += 1;
             isBlueHit = true;
         }
-        if(button.tag == "yellowButton")
-        {
-            yellowCount += 1;
-            isYellowHit = true;
-        }
         if(button.tag == "enterButton")
         {
             isEnterHit = true;
         }
         if(button.tag == "revertButton")
+        {
+            isResetHit = true;
+        }
+
+    }
+
+    public void TrackingElementMix()
+    {
+        //checking colors on cyan/magenta/yellow mixing table
+        if (button.tag == "magentaButton")
+        {
+            magentaCount += 1;
+            isMagentaHit = true;
+        }
+        if (button.tag == "cyanButton")
+        {
+            cyanCount += 1;
+            isCyanHit = true;
+        }
+        if (button.tag == "yellowButtonCMY")
+        {
+            yellowCMYCount += 1;
+            isYellowCMYHit = true;
+        }
+
+        //checking colors on red/blue/yellow mixing table
+        if (button.tag == "redButton")
+        {
+            redMixingCount += 1;
+            isRedMixingHit = true;
+        }
+        if (button.tag == "blueButton")
+        {
+            blueMixingCount += 1;
+            isBlueMixingHit = true;
+        }
+        if (button.tag == "yellowButtonRBY")
+        {
+            yellowRBYCount += 1;
+            isYellowRBYHit = true;
+        }
+
+        //reset
+        if (button.tag == "revertButton")
         {
             isResetHit = true;
         }

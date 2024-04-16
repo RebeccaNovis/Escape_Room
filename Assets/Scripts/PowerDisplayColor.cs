@@ -62,5 +62,17 @@ public class PowerDisplayColor : MonoBehaviour
                 gameObject.GetComponent<Renderer>().material = powerOff;
             }
         }
+
+        if (gameObject.tag == "doorPowerDisplay")
+        {
+            if (InsertBattery.isRedInserted && InsertBattery.isBlueInserted && InsertBattery.isPurpleInserted)
+            {
+                gameObject.GetComponent<Renderer>().material = powerOn;
+            }
+            else
+            {
+                gameObject.GetComponent<Renderer>().material = powerOff;
+            }
+        }
     }
 }
